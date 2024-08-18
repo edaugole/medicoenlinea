@@ -3,52 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Directorio de Médicos</title>
+    <title>Directorio Médico</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Arial', sans-serif;
             margin: 0;
-            padding: 20px;
-        }
-        h1 {
-            text-align: center;
+            padding: 0;
+            background-color: #f8f8f8;
             color: #333;
         }
-        .doctor-list {
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 10px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+        header {
+            background-color: #2d3e50;
+            padding: 20px;
+            text-align: center;
         }
-        .doctor-list a {
+
+        header h1 {
+            margin: 0;
+            color: #fff;
+            font-size: 2.5em;
+        }
+
+        nav {
+            background-color: #2d3e50;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        nav a {
+            color: #fff;
             text-decoration: none;
-            color: #007bff;
+            font-size: 1.1em;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background-color: #1c2a37;
+        }
+
+        .hero {
+            background-color: #4a6b82;
+            color: #fff;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 2em;
+            margin: 0;
+        }
+
+        .hero p {
+            margin: 20px 0;
+            font-size: 1.2em;
+        }
+
+        .hero a {
+            background-color: #ffcb05;
+            color: #333;
+            padding: 10px 20px;
+            text-decoration: none;
             font-weight: bold;
-            display: block;
-            padding: 10px;
-            border-bottom: 1px solid #ddd;
+            border-radius: 5px;
+            display: inline-block;
         }
-        .doctor-list a:hover {
-            background-color: #f0f0f0;
+
+        .hero a:hover {
+            background-color: #e0b304;
         }
-        .doctor-list a:last-child {
-            border-bottom: none;
+
+        .doctor-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 40px 20px;
+        }
+
+        .doctor-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            width: 300px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .doctor-photo {
+            width: 100%;
+            border-radius: 50%;
+        }
+
+        .doctor-info h3 {
+            color: #4a6b82;
+            margin-top: 10px;
+        }
+
+        .doctor-info p {
+            color: #666;
+            margin: 5px 0;
+        }
+
+        .doctor-info a {
+            color: #4a6b82;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+        .doctor-info a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: #2d3e50;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
         }
     </style>
 </head>
 <body>
 
-    <h1>Directorio de Médicos</h1>
+    <header>
+        <h1>Directorio Médico</h1>
+    </header>
 
-    <div class="doctor-list">
-        <a href="https://wa.me/5491123456789" target="_blank">Dr. Juan Pérez</a>
-        <a href="https://wa.me/5491198765432" target="_blank">Dra. María Gómez</a>
-        <a href="https://wa.me/5491133344556" target="_blank">Dr. Carlos López</a>
-        <!-- Añade más médicos aquí -->
+    <nav>
+        <a href="#">Inicio</a>
+        <a href="#">Acerca de</a>
+        <a href="#">Servicios</a>
+        <a href="#">Contacto</a>
+    </nav>
+
+    <div class="hero">
+        <h2>Encuentra a los mejores especialistas</h2>
+        <p>Accede a la información de contacto y especialidades de médicos de confianza.</p>
+        <a href="#doctors">Ver Médicos</a>
     </div>
+
+    <div class="doctor-list" id="doctors">
+        <div class="doctor-card">
+            <img src="doctor1.jpg" alt="Dra. Julia Leiva" class="doctor-photo">
+            <div class="doctor-info">
+                <h3>Dra. Julia Leiva</h3>
+                <p>Cardiología</p>
+                <p>Tel: +51  956 773 156</p>
+                <a href="https://wa.me/51956773156" target="_blank">Contactar por WhatsApp</a>
+            </div>
+        </div>
+
+        <div class="doctor-card">
+            <img src="doctor2.jpg" alt="Dra. María Gómez" class="doctor-photo">
+            <div class="doctor-info">
+                <h3>Dra. María Gómez</h3>
+                <p>Dermatología</p>
+                <p>Tel: +54 9 11 9876 5432</p>
+                <a href="https://wa.me/5491198765432" target="_blank">Contactar por WhatsApp</a>
+            </div>
+        </div>
+
+        <!-- Añade más médicos aquí -->
+
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Directorio Médico. Todos los derechos reservados.</p>
+    </footer>
 
 </body>
 </html>
