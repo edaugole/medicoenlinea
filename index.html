@@ -17,24 +17,19 @@
             background-color: #2d3e50;
             padding: 20px;
             text-align: center;
-            position: relative;
         }
 
-        .header-logo {
-            position: absolute;
-            top: 50%;
-            left: 20px;
-            transform: translateY(-50%);
-            width: 200px; /* Ajusta este valor para cambiar el tamaño */
-            height: auto; /* Mantiene la proporción de la imagen */
+        header img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
         }
 
         header h1 {
             margin: 0;
             color: #fff;
             font-size: 2.5em;
-            display: inline-block;
-            vertical-align: middle;
         }
 
         nav {
@@ -71,47 +66,76 @@
         .hero p {
             margin: 20px 0;
             font-size: 1.2em;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .hero a {
+        .search-bar {
+            margin: 20px auto;
+            display: flex;
+            justify-content: center;
+            max-width: 700px;
+        }
+
+        .search-bar input[type="text"], .search-bar select {
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px 0 0 5px;
+            width: 50%;
+        }
+
+        .search-bar select {
+            width: 30%;
+            border-radius: 0;
+        }
+
+        .search-bar button {
+            width: 20%;
+            padding: 10px;
+            font-size: 1em;
+            border: none;
             background-color: #ffcb05;
             color: #333;
-            padding: 10px 20px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            display: inline-block;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
         }
 
-        .hero a:hover {
+        .search-bar button:hover {
             background-color: #e0b304;
         }
 
         .doctor-list {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
             margin: 40px 20px;
         }
 
-        .doctor-card {
+        .doctor-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
             background-color: #fff;
+            padding: 20px;
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            margin: 20px;
-            width: 300px;
-            padding: 20px;
-            text-align: center;
+            width: 50%;
+            margin: 10px auto;
         }
 
         .doctor-photo {
-            width: 100%;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        .doctor-info {
+            flex: 1;
         }
 
         .doctor-info h3 {
             color: #4a6b82;
-            margin-top: 10px;
+            margin: 0;
         }
 
         .doctor-info p {
@@ -138,6 +162,22 @@
             padding: 20px;
             margin-top: 40px;
         }
+
+        .social-links {
+            margin: 20px 0;
+        }
+
+        .social-links a {
+            color: #fff;
+            margin: 0 10px;
+            font-size: 1.5em;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .social-links a:hover {
+            color: #ffcb05;
+        }
     </style>
 </head>
 <body>
@@ -157,44 +197,102 @@
     <div class="hero">
         <h2>Encuentra a los mejores especialistas</h2>
         <p>Accede a la información de contacto y especialidades de médicos de confianza.</p>
-        <a href="#doctors">Ver Médicos</a>
+        
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Buscar por nombre o especialidad">
+            <select id="specialtyFilter">
+                <option value="">Filtrar por Especialidad</option>
+                <option value="ginecologia">Ginecología</option>
+                <option value="pediatria">Pediatría</option>
+                <option value="medicina general">Medicina General</option>
+            </select>
+            <button onclick="filtrarDoctores()">Buscar</button>
+        </div>
     </div>
 
     <div class="doctor-list" id="doctors">
-        <div class="doctor-card">
+        <!-- Listado de médicos -->
+        <div class="doctor-item" data-specialty="ginecologia">
             <img src="doctor1.jpg" alt="Dra. Julia Leiva" class="doctor-photo">
             <div class="doctor-info">
                 <h3>Dra. Julia Leiva</h3>
-                <p>Cardiología</p>
-                <p>Tel: +51  956 773 156</p>
+                <p>Ginecología</p>
+                <p>Especialista en salud femenina con más de 20 años de experiencia.</p>
+                <p>Tel: +51 956 773 156</p>
                 <a href="https://wa.me/51956773156" target="_blank">Contactar por WhatsApp</a>
             </div>
         </div>
 
-        <div class="doctor-card">
-            <img src="doctor2.jpg" alt="Dra. María Gómez" class="doctor-photo">
+        <div class="doctor-item" data-specialty="pediatria">
+            <img src="doctor2.jpg" alt="Dr. Roberto Pérez" class="doctor-photo">
             <div class="doctor-info">
-                <h3>Dra. María Gómez</h3>
-                <p>Dermatología</p>
-                <p>Tel: +54 9 11 9876 5432</p>
-                <a href="https://wa.me/5491198765432" target="_blank">Contactar por WhatsApp</a>
+                <h3>Dr. Roberto Pérez</h3>
+                <p>Pediatría</p>
+                <p>Experto en atención infantil, 15 años de servicio en clínicas reconocidas.</p>
+                <p>Tel: +54 9 11 8765 4321</p>
+                <a href="https://wa.me/5491187654321" target="_blank">Contactar por WhatsApp</a>
+            </div>
+        </div>
+
+        <div class="doctor-item" data-specialty="medicina general">
+            <img src="doctor3.jpg" alt="Dr. Miguel Ángel" class="doctor-photo">
+            <div class="doctor-info">
+                <h3>Dr. Miguel Ángel</h3>
+                <p>Medicina General</p>
+                <p>Médico de familia con más de 10 años de experiencia en atención primaria.</p>
+                <p>Tel: +51 986 773 888</p>
+                <a href="https://wa.me/51986773888" target="_blank">Contactar por WhatsApp</a>
+            </div>
+        </div>
+
+        <div class="doctor-item" data-specialty="ginecologia">
+            <img src="doctor4.jpg" alt="Dra. Lucía Ramírez" class="doctor-photo">
+            <div class="doctor-info">
+                <h3>Dra. Lucía Ramírez</h3>
+                <p>Ginecología</p>
+                <p>Especialista en ginecología obstétrica, ha trabajado en hospitales públicos y privados.</p>
+                <p>Tel: +51 997 665 789</p>
+                <a href="https://wa.me/51997665789" target="_blank">Contactar por WhatsApp</a>
             </div>
         </div>
 
         <!-- Añade más médicos aquí -->
-
+        <!-- Ejemplo para 10 médicos con las 3 especialidades -->
     </div>
 
     <footer>
-        <p>&copy; 2024 Directorio Médico. Todos los derechos reservados.</p>
-    
         <div class="social-links">
-            <a href="https://www.facebook.com/tu_pagina" target="_blank"><img src="facebook_icon.png" alt="Facebook"></a>
-            <a href="https://www.twitter.com/tu_pagina" target="_blank"><img src="twitter_icon.png" alt="Twitter"></a>
-            <a href="https://www.instagram.com/tu_pagina" target="_blank"><img src="instagram_icon.png" alt="Instagram"></a>
+            <a href="https://facebook.com" target="_blank">Facebook</a>
+            <a href="https://twitter.com" target="_blank">Twitter</a>
+            <a href="https://instagram.com" target="_blank">Instagram</a>
+            <a href="https://linkedin.com" target="_blank">LinkedIn</a>
         </div>
-
+        <p>&copy; 2024 Directorio Médico. Todos los derechos reservados.</p>
     </footer>
+
+    <script>
+        function filtrarDoctores() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const specialtyFilter = document.getElementById('specialtyFilter').value;
+            const doctorItems = document.querySelectorAll('.doctor-item');
+
+            doctorItems.forEach(item => {
+                const name = item.querySelector('h3').textContent.toLowerCase();
+                const specialty = item.getAttribute('data-specialty').toLowerCase();
+
+                if (
+                    (name.includes(input) || specialty.includes(input)) &&
+                    (specialtyFilter === "" || specialty === specialtyFilter)
+                ) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
 
 </body>
 </html>
