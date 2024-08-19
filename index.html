@@ -17,12 +17,24 @@
             background-color: #2d3e50;
             padding: 20px;
             text-align: center;
+            position: relative;
+        }
+
+        .header-logo {
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            width: 200px; /* Ajusta este valor para cambiar el tamaño */
+            height: auto; /* Mantiene la proporción de la imagen */
         }
 
         header h1 {
             margin: 0;
             color: #fff;
             font-size: 2.5em;
+            display: inline-block;
+            vertical-align: middle;
         }
 
         nav {
@@ -131,6 +143,7 @@
 <body>
 
     <header>
+        <img src="https://i.pinimg.com/236x/94/b6/04/94b604e780170fe9a6226fd2595ede64.jpg" alt="Logo del Directorio Médico" class="header-logo">
         <h1>Directorio Médico</h1>
     </header>
 
